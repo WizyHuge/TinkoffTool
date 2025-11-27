@@ -1,4 +1,4 @@
-# TinkoffAnalyzer
+# TinkoffTool
 
 Полнофункциональное десктоп-приложение для работы с **Tinkoff Invest API**, включающее:
 
