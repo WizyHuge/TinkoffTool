@@ -342,7 +342,7 @@ class MainWindow(QMainWindow):
         strategy_label.setStyleSheet(styles.DARK_THEME["label_primary"])
         strategy_select_layout.addWidget(strategy_label)
         self.strategyCombo = QComboBox()
-        self.strategyCombo.addItems(["Выберите стратегию", "Advanced Strategy"])
+        self.strategyCombo.addItems(["Выберите стратегию", "Advanced Strategy", "Simple Strategy"])
         self.strategyCombo.setStyleSheet(styles.DARK_THEME["combo_box"])
         self.strategyCombo.currentIndexChanged.connect(self.strategy_changed)
         strategy_select_layout.addWidget(self.strategyCombo)
@@ -1314,6 +1314,7 @@ class MainWindow(QMainWindow):
 
     def strategy_changed(self):
         from strategies.advanced_strategy import CostAwareSmartStrategy
+        from strategies.simple_fast_strategy import SimpleFastStrategy
 
         strategy_name = self.strategyCombo.currentText()
         if strategy_name == " Выберите стратегию ":
@@ -1323,6 +1324,10 @@ class MainWindow(QMainWindow):
         elif strategy_name == "Advanced Strategy":
             self.active_strategy = CostAwareSmartStrategy()
             self.paramsLabel.setText("Advanced Strategy")
+        
+        elif strategy_name == "Simple Strategy":
+            self.active_strategy = SimpleFastStrategy()
+            self.paramsLabel.setText("Simple Strategy")
 
         self.sync_strategy_with_chart_data(strategy_name)
 
