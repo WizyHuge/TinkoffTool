@@ -224,7 +224,7 @@ class MainWindow(QMainWindow):
         self.portfolio_refresh_timer.setSingleShot(False)
 
     def setup_ui(self):
-        self.setWindowTitle("TinkoffAnalyzer — Trading Bot")
+        self.setWindowTitle("Tinkoff Tool")
         self.setup_tabs()
         self.setup_central_widget()
         self.refresh_accounts_list()
